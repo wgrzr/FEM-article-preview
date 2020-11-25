@@ -1,0 +1,299 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+menu,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+body {
+  line-height: 1;
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font: 500 1.3rem "Manrope", sans-serif;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background: #ecf2f8;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.post__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  width: 54%;
+  -webkit-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.2);
+  box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.2);
+}
+
+.post__image {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.post__image img {
+  border-radius: 10px 0 0 10px;
+  width: 380px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.post__preview {
+  border-radius: 0px 10px 10px 0px;
+  grid-column: 3 / -1;
+  background-color: #ffff;
+  display: -ms-grid;
+  display: grid;
+  padding: 2.8rem;
+}
+
+.post__preview .post__title {
+  color: #48556a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.post__preview .post__body {
+  color: #6d7f97;
+  padding-top: .5rem;
+  line-height: 1.4rem;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.post__preview .post__timestamp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.post__preview .post__timestamp .author__image {
+  display: block;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.post__preview .post__timestamp .author__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.post__preview .post__timestamp .author__details .author__name {
+  color: #48556a;
+  padding-bottom: .25rem;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.post__preview .post__timestamp .author__details .author__date {
+  font-size: 14px;
+  color: #9eafc2;
+}
+
+.post__preview .post__timestamp .post__share {
+  margin-right: 1rem;
+  margin-top: .2rem;
+  width: 32px;
+  height: 32px;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  background-color: #ecf2f8;
+}
+
+.post__preview .post__timestamp .post__share img {
+  color: #6d7f97;
+  margin: .52rem;
+  font-size: 1.2rem;
+}
+
+.share__tooltip {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */
