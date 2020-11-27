@@ -46,23 +46,45 @@
 .post__container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  width: 54%;
+  max-width: 900px;
   -webkit-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   -moz-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   position: relative;
+
+  @include bp-small {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 325px;
+    border-radius: 10px / 10px;
+  }
 }
 
 .post__image {
   grid-column: 1 / span 2;
   display: flex;
   width: 100%;
+  background-color: $white;
 
   img {
     border-radius: 10px 0 0 10px;
     width: 380px;
     height: auto;
     object-fit: cover;
+
+    @include bp-small {
+      width: 100%;
+      height: 234px;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  @include bp-small {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
   }
 }
 
@@ -73,10 +95,20 @@
   display: grid;
   padding: 2.8rem;
 
+  @include bp-small {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 2rem 1.8rem;
+  }
+
   .post__title {
     color: $very-dark-grayish-blue;
     font-size: 22px;
     font-weight: 700;
+
+    @include bp-small {
+      font-size: 16px;
+    }
   }
 
   .post__body {
@@ -85,6 +117,11 @@
     line-height: 1.4rem;
     font-size: 13px;
     font-weight: 500;
+
+    @include bp-small {
+      padding-right: 0.7rem;
+      margin-bottom: .25rem;
+    }
   }
 
   .post__timestamp {
@@ -94,6 +131,12 @@
     width: 100%;
     padding-top: 1rem;
 
+    @include bp-small {
+      position: relative;
+      padding-top: 0.5rem;
+      top: 1.1rem;
+    }
+
     .author__image {
       display: block;
       clip-path: circle(50% at 50% 50%);
@@ -101,6 +144,11 @@
       object-fit: cover;
       height: auto;
       margin-right: 1rem;
+
+      @include bp-small {
+        width: 45px;
+        margin-right: 0.8rem;
+      }
     }
 
     .author__details {
@@ -112,11 +160,19 @@
         padding-bottom: .25rem;
         font-size: 15px;
         font-weight: 700;
+
+        @include bp-small {
+          font-size: 14px;
+        }
       }
 
       .author__date {
         font-size: 14px;
         color: $grayish-blue;
+
+        @include bp-small {
+          font-size: 13px;
+        }
       }
     }
 
@@ -127,6 +183,12 @@
       height: 32px;
       clip-path: circle(50% at 50% 50%);
       background-color: $light-greyish-blue;
+      transition: background-color 0.6s ease;
+      z-index: 99;
+
+      @include bp-small {
+        margin: 0.25rem .5rem 0 0;
+      }
 
       img {
         color: $desaturated-dark-blue;
@@ -136,6 +198,11 @@
 
       &:hover {
         cursor: pointer;
+        background-color: $desaturated-dark-blue;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
       }
 
       &.active {
@@ -149,7 +216,6 @@
   }
 }
 
-
 .share__tooltip {
   position: absolute;
   bottom: 7rem;
@@ -161,48 +227,50 @@
   -moz-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.367);
   box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.367);
   opacity: 0;
-  @include animation('fadein 5s 3');
+  transform: scale(0);
+  transition: all 0.6s ease;
 
-  .tooltip__content {
+  &.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.mobile {
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    width: 100%;
+    height: 70px;
+    border-radius: 0 0 10px 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: .25rem 1.8rem;
-    padding: .5rem;
 
-    pointer-events: none;
-
-    p {
-      color: $grayish-blue;
-      text-transform: uppercase;
-      font-size: .9rem;
-      letter-spacing: .35rem;
-      font-weight: 700;
-      flex: 1;
+    .tooltip__arrow {
+      display: none;
     }
 
-    .tooltip__icons {
-      display: flex;
-      flex: 1;
-      margin-left: 1rem;
-      padding-top: .25rem;
+    .tooltip__content {
+      padding: 0;
 
-      a {
-        text-decoration: none;
-        padding: 0 .6rem;
+      p {
+        font-size: .8rem;
+      }
 
-        img {
-          width: 22px;
-          height: 22px;
+      .tooltip__icons {
+        padding: 0;
+        padding-top: .25rem;
+
+        margin-left: .5rem;
+
+        a {
+          padding: 0 0.5rem;
+
+          img {
+            width: 21px;
+            height: 21px;
+          }
         }
       }
-
-      &.hover {
-        cursor: pointer;
-        opacity: 0.5;
-      }
     }
-
   }
 
   .tooltip__arrow {
@@ -215,10 +283,52 @@
     background: $very-dark-grayish-blue;
   }
 
-  &.active {
-    opacity: 1;
+  .tooltip__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .25rem 1.8rem;
+    padding: .5rem;
+
+    p {
+      color: $grayish-blue;
+      text-transform: uppercase;
+      font-size: .9rem;
+      letter-spacing: .35rem;
+      flex: 1;
+      pointer-events: none;
+    }
+
+    .tooltip__icons {
+      display: flex;
+      flex: 1;
+      margin-left: 1rem;
+      padding-top: .25rem;
+
+      a {
+        text-decoration: none;
+        padding: 0 .6rem;
+        transition: opacity 0.6s ease;
+        &:hover {
+          opacity: 0.5;
+          cursor: pointer;
+        }
+
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      &.hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
+    }
   }
+
 }
+
 
 
 

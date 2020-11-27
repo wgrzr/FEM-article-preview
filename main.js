@@ -1,32 +1,32 @@
 const shareIcon = document.querySelector(".post__share");
 const toolTip = document.querySelector(".share__tooltip");
 
-shareIcon.addEventListener("mouseover", () => {
-	toolTip.classList.add("active");
-	shareIcon.classList.add("active");
+let viewportWidth;
+let setViewportWidth = function () {
+	viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+};
+
+shareIcon.addEventListener("click", () => {
+	toolTip.classList.toggle("active");
+	shareIcon.classList.toggle("active");
 });
 
-shareIcon.addEventListener("mouseleave", () => {
-	timer = setTimeout(() => {
-		toolTip.classList.remove("active");
-		shareIcon.classList.remove("active");
-	}, 1000);
-});
+let logWidth = function () {
+	if (viewportWidth > 500) {
+		toolTip.classList.remove("mobile");
+	} else {
+		toolTip.classList.add("mobile");
+	}
+};
 
-toolTip.addEventListener("mouseover", () => {
-	clearTimeout(timer);
+setViewportWidth();
+logWidth();
 
-	timer = setTimeout(() => {
-		toolTip.classList.add("active");
-		shareIcon.classList.add("active");
-	}, 1000);
-});
-
-toolTip.addEventListener("mouseleave", () => {
-	clearTimeout(timer);
-
-	timer = setTimeout(() => {
-		toolTip.classList.remove("active");
-		shareIcon.classList.remove("active");
-	}, 1000);
-});
+window.addEventListener(
+	"resize",
+	function () {
+		setViewportWidth();
+		logWidth();
+	},
+	false
+);

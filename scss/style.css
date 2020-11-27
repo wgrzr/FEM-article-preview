@@ -1,56 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
 html,
 body,
 div,
@@ -234,10 +186,30 @@ input {
   display: grid;
   -ms-grid-columns: (1fr)[5];
       grid-template-columns: repeat(5, 1fr);
-  width: 54%;
+  max-width: 900px;
   -webkit-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.2);
   box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.2);
   position: relative;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 325px;
+    border-radius: 10px / 10px;
+  }
 }
 
 .post__image {
@@ -248,6 +220,7 @@ input {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  background-color: #ffff;
 }
 
 .post__image img {
@@ -256,6 +229,22 @@ input {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__image img {
+    width: 100%;
+    height: 234px;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .post__image {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+  }
 }
 
 .post__preview {
@@ -267,10 +256,24 @@ input {
   padding: 2.8rem;
 }
 
+@media only screen and (max-width: 500px) {
+  .post__preview {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 2rem 1.8rem;
+  }
+}
+
 .post__preview .post__title {
   color: #48556a;
   font-size: 22px;
   font-weight: 700;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__preview .post__title {
+    font-size: 16px;
+  }
 }
 
 .post__preview .post__body {
@@ -279,6 +282,13 @@ input {
   line-height: 1.4rem;
   font-size: 13px;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__preview .post__body {
+    padding-right: 0.7rem;
+    margin-bottom: .25rem;
+  }
 }
 
 .post__preview .post__timestamp {
@@ -295,6 +305,14 @@ input {
   padding-top: 1rem;
 }
 
+@media only screen and (max-width: 500px) {
+  .post__preview .post__timestamp {
+    position: relative;
+    padding-top: 0.5rem;
+    top: 1.1rem;
+  }
+}
+
 .post__preview .post__timestamp .author__image {
   display: block;
   -webkit-clip-path: circle(50% at 50% 50%);
@@ -304,6 +322,13 @@ input {
      object-fit: cover;
   height: auto;
   margin-right: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__preview .post__timestamp .author__image {
+    width: 45px;
+    margin-right: 0.8rem;
+  }
 }
 
 .post__preview .post__timestamp .author__details {
@@ -322,9 +347,21 @@ input {
   font-weight: 700;
 }
 
+@media only screen and (max-width: 500px) {
+  .post__preview .post__timestamp .author__details .author__name {
+    font-size: 14px;
+  }
+}
+
 .post__preview .post__timestamp .author__details .author__date {
   font-size: 14px;
   color: #9eafc2;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__preview .post__timestamp .author__details .author__date {
+    font-size: 13px;
+  }
 }
 
 .post__preview .post__timestamp .post__share {
@@ -335,6 +372,15 @@ input {
   -webkit-clip-path: circle(50% at 50% 50%);
           clip-path: circle(50% at 50% 50%);
   background-color: #ecf2f8;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease;
+  z-index: 99;
+}
+
+@media only screen and (max-width: 500px) {
+  .post__preview .post__timestamp .post__share {
+    margin: 0.25rem .5rem 0 0;
+  }
 }
 
 .post__preview .post__timestamp .post__share img {
@@ -345,6 +391,12 @@ input {
 
 .post__preview .post__timestamp .post__share:hover {
   cursor: pointer;
+  background-color: #6d7f97;
+}
+
+.post__preview .post__timestamp .post__share:hover img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
 }
 
 .post__preview .post__timestamp .post__share.active {
@@ -366,8 +418,66 @@ input {
   -webkit-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.367);
   box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.367);
   opacity: 0;
-  -webkit-animation: fadein 5s 3;
-  animation: fadein 5s 3;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.share__tooltip.active {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.share__tooltip.mobile {
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  width: 100%;
+  height: 70px;
+  border-radius: 0 0 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.share__tooltip.mobile .tooltip__arrow {
+  display: none;
+}
+
+.share__tooltip.mobile .tooltip__content {
+  padding: 0;
+}
+
+.share__tooltip.mobile .tooltip__content p {
+  font-size: .8rem;
+}
+
+.share__tooltip.mobile .tooltip__content .tooltip__icons {
+  padding: 0;
+  padding-top: .25rem;
+  margin-left: .5rem;
+}
+
+.share__tooltip.mobile .tooltip__content .tooltip__icons a {
+  padding: 0 0.5rem;
+}
+
+.share__tooltip.mobile .tooltip__content .tooltip__icons a img {
+  width: 21px;
+  height: 21px;
+}
+
+.share__tooltip .tooltip__arrow {
+  position: absolute;
+  bottom: -.8rem;
+  left: 45%;
+  width: 25px;
+  height: 15px;
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  background: #48556a;
 }
 
 .share__tooltip .tooltip__content {
@@ -382,7 +492,6 @@ input {
           justify-content: space-between;
   margin: .25rem 1.8rem;
   padding: .5rem;
-  pointer-events: none;
 }
 
 .share__tooltip .tooltip__content p {
@@ -390,10 +499,10 @@ input {
   text-transform: uppercase;
   font-size: .9rem;
   letter-spacing: .35rem;
-  font-weight: 700;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  pointer-events: none;
 }
 
 .share__tooltip .tooltip__content .tooltip__icons {
@@ -410,6 +519,13 @@ input {
 .share__tooltip .tooltip__content .tooltip__icons a {
   text-decoration: none;
   padding: 0 .6rem;
+  -webkit-transition: opacity 0.6s ease;
+  transition: opacity 0.6s ease;
+}
+
+.share__tooltip .tooltip__content .tooltip__icons a:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .share__tooltip .tooltip__content .tooltip__icons a img {
@@ -420,20 +536,5 @@ input {
 .share__tooltip .tooltip__content .tooltip__icons.hover {
   cursor: pointer;
   opacity: 0.5;
-}
-
-.share__tooltip .tooltip__arrow {
-  position: absolute;
-  bottom: -.8rem;
-  left: 45%;
-  width: 25px;
-  height: 15px;
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
-  background: #48556a;
-}
-
-.share__tooltip.active {
-  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
