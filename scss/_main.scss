@@ -46,7 +46,7 @@
 .post__container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  max-width: 900px;
+  max-width: 820px;
   -webkit-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   -moz-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
@@ -65,17 +65,16 @@
 .post__image {
   grid-column: 1 / span 2;
   display: flex;
-  width: 100%;
   background-color: $white;
+  width: 400px;
 
   img {
+    width: 100%;
     border-radius: 10px 0 0 10px;
-    width: 380px;
     height: auto;
     object-fit: cover;
 
     @include bp-small {
-      width: 100%;
       height: 234px;
       border-radius: 10px 10px 0 0;
     }
@@ -93,7 +92,8 @@
   grid-column: 3 / -1;
   background-color: $white;
   display: grid;
-  padding: 2.8rem;
+  padding: 2rem 3rem 1.5rem 3rem;
+  width: 100%;
 
   @include bp-small {
     width: 100%;
@@ -102,7 +102,7 @@
   }
 
   .post__title {
-    color: $very-dark-grayish-blue;
+    color: $desaturated-dark-blue;
     font-size: 22px;
     font-weight: 700;
 
@@ -112,15 +112,14 @@
   }
 
   .post__body {
-    color: $desaturated-dark-blue;
-    padding-top: .5rem;
+    color: $grayish-blue;
     line-height: 1.4rem;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
 
     @include bp-small {
-      padding-right: 0.7rem;
-      margin-bottom: .25rem;
+      padding-top: .5rem;
+      margin-right: .75rem;
     }
   }
 
@@ -129,7 +128,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-top: 1rem;
 
     @include bp-small {
       position: relative;
@@ -143,7 +141,9 @@
       width: 50px;
       object-fit: cover;
       height: auto;
-      margin-right: 1rem;
+      margin-right: .75rem;
+      position: relative;
+      right: .25rem;
 
       @include bp-small {
         width: 45px;
@@ -156,29 +156,20 @@
       align-items: center;
 
       .author__name {
-        color: $very-dark-grayish-blue;
-        padding-bottom: .25rem;
-        font-size: 15px;
+        color: $desaturated-dark-blue;
+        padding-bottom: .15rem;
+        font-size: 14px;
         font-weight: 700;
-
-        @include bp-small {
-          font-size: 14px;
-        }
       }
 
       .author__date {
-        font-size: 14px;
+        font-size: 13px;
         color: $grayish-blue;
-
-        @include bp-small {
-          font-size: 13px;
-        }
       }
     }
 
     .post__share {
-      margin-right: 1rem;
-      margin-top: .2rem;
+      margin-right: .5rem;
       width: 32px;
       height: 32px;
       clip-path: circle(50% at 50% 50%);
@@ -219,7 +210,7 @@
 .share__tooltip {
   position: absolute;
   bottom: 7rem;
-  right: -4rem;
+  right: -4.25rem;
   background: $very-dark-grayish-blue;
   width: 280px;
   border-radius: 12px;
@@ -309,6 +300,7 @@
         text-decoration: none;
         padding: 0 .6rem;
         transition: opacity 0.6s ease;
+
         &:hover {
           opacity: 0.5;
           cursor: pointer;
