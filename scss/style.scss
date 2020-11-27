@@ -1,4 +1,8 @@
-@import './_reset';
-@import './_config';
-@import './_base';
-@import './_main';
+@import './mixins';
+@import './breakpoints';
+@import './keyframes';
+
+@import './reset';
+@import './config';
+@import './base';
+@import './main';

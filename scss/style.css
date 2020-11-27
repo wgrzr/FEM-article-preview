@@ -1,8 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
 html,
 body,
 div,
@@ -178,6 +226,7 @@ input {
   display: -ms-grid;
   display: grid;
   place-items: center;
+  position: relative;
 }
 
 .post__container {
@@ -188,6 +237,7 @@ input {
   width: 54%;
   -webkit-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.2);
   box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.2);
+  position: relative;
 }
 
 .post__image {
@@ -293,7 +343,97 @@ input {
   font-size: 1.2rem;
 }
 
+.post__preview .post__timestamp .post__share:hover {
+  cursor: pointer;
+}
+
+.post__preview .post__timestamp .post__share.active {
+  background-color: #6d7f97;
+}
+
+.post__preview .post__timestamp .post__share.active img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+
 .share__tooltip {
-  display: none;
+  position: absolute;
+  bottom: 7rem;
+  right: -4rem;
+  background: #48556a;
+  width: 280px;
+  border-radius: 12px;
+  -webkit-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.367);
+  box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.367);
+  opacity: 0;
+  -webkit-animation: fadein 5s 3;
+  animation: fadein 5s 3;
+}
+
+.share__tooltip .tooltip__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: .25rem 1.8rem;
+  padding: .5rem;
+  pointer-events: none;
+}
+
+.share__tooltip .tooltip__content p {
+  color: #9eafc2;
+  text-transform: uppercase;
+  font-size: .9rem;
+  letter-spacing: .35rem;
+  font-weight: 700;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.share__tooltip .tooltip__content .tooltip__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 1rem;
+  padding-top: .25rem;
+}
+
+.share__tooltip .tooltip__content .tooltip__icons a {
+  text-decoration: none;
+  padding: 0 .6rem;
+}
+
+.share__tooltip .tooltip__content .tooltip__icons a img {
+  width: 22px;
+  height: 22px;
+}
+
+.share__tooltip .tooltip__content .tooltip__icons.hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.share__tooltip .tooltip__arrow {
+  position: absolute;
+  bottom: -.8rem;
+  left: 45%;
+  width: 25px;
+  height: 15px;
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  background: #48556a;
+}
+
+.share__tooltip.active {
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */

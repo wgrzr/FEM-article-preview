@@ -40,7 +40,7 @@
   background: $light-greyish-blue;
   display: grid;
   place-items: center;
-
+  position: relative;
 }
 
 .post__container {
@@ -50,13 +50,14 @@
   -webkit-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   -moz-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
   box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.2);
+  position: relative;
 }
 
 .post__image {
   grid-column: 1 / span 2;
   display: flex;
   width: 100%;
-  
+
   img {
     border-radius: 10px 0 0 10px;
     width: 380px;
@@ -132,13 +133,94 @@
         margin: .52rem;
         font-size: 1.2rem;
       }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.active {
+        background-color: $desaturated-dark-blue;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
     }
   }
 }
 
+
 .share__tooltip {
-  display: none;
+  position: absolute;
+  bottom: 7rem;
+  right: -4rem;
+  background: $very-dark-grayish-blue;
+  width: 280px;
+  border-radius: 12px;
+  -webkit-box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.367);
+  -moz-box-shadow: 8px 8px 40px 0px rgba(112, 130, 153, 0.367);
+  box-shadow: 8px 8px 40px 0px rgba(44%, 51%, 60%, 0.367);
+  opacity: 0;
+  @include animation('fadein 5s 3');
+
+  .tooltip__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .25rem 1.8rem;
+    padding: .5rem;
+
+    pointer-events: none;
+
+    p {
+      color: $grayish-blue;
+      text-transform: uppercase;
+      font-size: .9rem;
+      letter-spacing: .35rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .tooltip__icons {
+      display: flex;
+      flex: 1;
+      margin-left: 1rem;
+      padding-top: .25rem;
+
+      a {
+        text-decoration: none;
+        padding: 0 .6rem;
+
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      &.hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
+    }
+
+  }
+
+  .tooltip__arrow {
+    position: absolute;
+    bottom: -.8rem;
+    left: 45%;
+    width: 25px;
+    height: 15px;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background: $very-dark-grayish-blue;
+  }
+
+  &.active {
+    opacity: 1;
+  }
 }
+
+
 
 $white: #ffff;
 $very-dark-grayish-blue: hsl(217, 19%, 35%);
