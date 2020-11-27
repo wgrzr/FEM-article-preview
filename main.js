@@ -12,7 +12,7 @@ shareIcon.addEventListener("click", () => {
 });
 
 let logWidth = function () {
-	if (viewportWidth > 500) {
+	if (viewportWidth > 700) {
 		toolTip.classList.remove("mobile");
 	} else {
 		toolTip.classList.add("mobile");
